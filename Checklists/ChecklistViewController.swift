@@ -8,51 +8,103 @@
 import UIKit
 
 class ChecklistViewController: UITableViewController {
+    
+    var items = [ChecklistItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let item1 = ChecklistItem()
+        item1.text = "Walk the dog"
+        items.append(item1)
+        let item2 = ChecklistItem()
+        item2.text = "Brush my teeth"
+        item2.checked = true
+        items.append(item2)
+        let item3 = ChecklistItem()
+        item3.text = "Learn iOS development"
+        item3.checked = true
+        items.append(item3)
+        let item4 = ChecklistItem()
+        item4.text = "Soccer practice"
+        items.append(item4)
+        let item5 = ChecklistItem()
+        item5.text = "Eat ice cream"
+        items.append(item5)
     }
     
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "checklistItem",for: indexPath)
         
-        let label = cell.viewWithTag(1000) as! UILabel
-        
-        if indexPath.row % 5 == 0 {
-            label.text = "Walk the dog"
-        } else if indexPath.row % 5 == 1 {
-            label.text = "Brush my teeth"
-        } else if indexPath.row % 5 == 2 {
-            label.text = "Learn iOS development"
-        } else if indexPath.row % 5 == 3 {
-            label.text = "Soccer practice"
-        } else if indexPath.row % 5 == 4 {
-            label.text = "Eat ice cream"
-        }
+        configureText(for: cell, with: item)
+        configureCheckmark(for:cell, with: item)
         
         return cell
     }
     
+    // MARK: - Table view Delegate
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        100
+        items.count
     }
     
-    // MARK: - Table view Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if let cell = tableView.cellForRow(at: indexPath) {
-            if cell.accessoryType == .none {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
+            let item = items[indexPath.row]
+            item.checked.toggle()
+            configureCheckmark(for: cell, with: item)
         }
     }
     
-
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        items.remove(at: indexPath.row)
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: UITableView.RowAnimation.fade)
+    }
+    
+    
+    // MARK: - table view cell for row at
+    func configureCheckmark(for cell: UITableViewCell, with item : ChecklistItem)  {
+        if item.checked {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+    }
+    
+    func configureText(
+        for cell: UITableViewCell,
+        with item: ChecklistItem
+    ) {
+        let label = cell.viewWithTag(1000) as! UILabel
+        label.text = item.text
+    }
+    
+    // MARK: - Actions
+    
+    
+    @IBAction func addItembuttonPressed(_ sender: UIBarButtonItem) {
+        
+        let numbsRows = items.count
+        
+        let item = ChecklistItem()
+        item.text = "Boss baby"
+        
+        let indexpath = IndexPath(row: numbsRows, section: 0)
+        
+        let indexPaths = [indexpath]
+        
+        items.append(item)
+        
+        tableView.insertRows(at: indexPaths, with: .fade)
+    }
+    
 }
 
