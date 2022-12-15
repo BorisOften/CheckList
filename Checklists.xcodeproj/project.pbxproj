@@ -14,6 +14,7 @@
 		81A054C2294A41DD0035457A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81A054C1294A41DD0035457A /* Assets.xcassets */; };
 		81A054C5294A41DD0035457A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A054C3294A41DD0035457A /* LaunchScreen.storyboard */; };
 		81A054CD294B7F4B0035457A /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A054CC294B7F4B0035457A /* ChecklistItem.swift */; };
+		81A054D1294BC0A00035457A /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A054D0294BC0A00035457A /* AddItemTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		81A054C4294A41DD0035457A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81A054C6294A41DD0035457A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81A054CC294B7F4B0035457A /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		81A054D0294BC0A00035457A /* AddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				81A054B8294A41DC0035457A /* AppDelegate.swift */,
 				81A054BA294A41DC0035457A /* SceneDelegate.swift */,
 				81A054BC294A41DC0035457A /* ChecklistViewController.swift */,
+				81A054D0294BC0A00035457A /* AddItemTableViewController.swift */,
 				81A054CC294B7F4B0035457A /* ChecklistItem.swift */,
 				81A054BE294A41DC0035457A /* Main.storyboard */,
 				81A054C1294A41DD0035457A /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81A054BD294A41DC0035457A /* ChecklistViewController.swift in Sources */,
+				81A054D1294BC0A00035457A /* AddItemTableViewController.swift in Sources */,
 				81A054B9294A41DC0035457A /* AppDelegate.swift in Sources */,
 				81A054BB294A41DC0035457A /* SceneDelegate.swift in Sources */,
 				81A054CD294B7F4B0035457A /* ChecklistItem.swift in Sources */,
