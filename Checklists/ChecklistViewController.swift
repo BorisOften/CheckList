@@ -11,11 +11,13 @@ class ChecklistViewController: UITableViewController, ItemViewControllerDelegate
     
     
     var items = [ChecklistItem]()
+    var checklist: Checklist!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.title = checklist.name
         
         print("Documents folder is \(documentsDirectory())")
         print("Data file path is \(dataFilePath())")

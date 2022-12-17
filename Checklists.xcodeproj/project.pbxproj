@@ -16,6 +16,7 @@
 		81A054CD294B7F4B0035457A /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A054CC294B7F4B0035457A /* ChecklistItem.swift */; };
 		81A054D1294BC0A00035457A /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A054D0294BC0A00035457A /* ItemTableViewController.swift */; };
 		81CDD6FE294E5F7700C45C4A /* AllListsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CDD6FD294E5F7700C45C4A /* AllListsTableViewController.swift */; };
+		81CDD700294E643D00C45C4A /* CheckList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CDD6FF294E643D00C45C4A /* CheckList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		81A054CC294B7F4B0035457A /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		81A054D0294BC0A00035457A /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		81CDD6FD294E5F7700C45C4A /* AllListsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsTableViewController.swift; sourceTree = "<group>"; };
+		81CDD6FF294E643D00C45C4A /* CheckList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				81CDD6FD294E5F7700C45C4A /* AllListsTableViewController.swift */,
 				81A054D0294BC0A00035457A /* ItemTableViewController.swift */,
 				81A054CC294B7F4B0035457A /* ChecklistItem.swift */,
+				81CDD6FF294E643D00C45C4A /* CheckList.swift */,
 				81A054BE294A41DC0035457A /* Main.storyboard */,
 				81A054C1294A41DD0035457A /* Assets.xcassets */,
 				81A054C3294A41DD0035457A /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 				81A054BD294A41DC0035457A /* ChecklistViewController.swift in Sources */,
 				81A054D1294BC0A00035457A /* ItemTableViewController.swift in Sources */,
 				81CDD6FE294E5F7700C45C4A /* AllListsTableViewController.swift in Sources */,
+				81CDD700294E643D00C45C4A /* CheckList.swift in Sources */,
 				81A054B9294A41DC0035457A /* AppDelegate.swift in Sources */,
 				81A054BB294A41DC0035457A /* SceneDelegate.swift in Sources */,
 				81A054CD294B7F4B0035457A /* ChecklistItem.swift in Sources */,
