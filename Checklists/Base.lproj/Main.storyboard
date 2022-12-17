@@ -47,7 +47,7 @@
                     <navigationItem key="navigationItem" title="CheckLists" id="HOT-OL-c0n">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1Qp-0u-ng0">
                             <connections>
-                                <segue destination="DHh-kG-SBM" kind="show" id="Ddw-fj-9K8"/>
+                                <segue destination="DHh-kG-SBM" kind="show" identifier="AddItem" id="Ddw-fj-9K8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -74,7 +74,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="83"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ork-De-wSk">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of item" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ork-De-wSk">
                                                     <rect key="frame" x="30" y="11" width="333" height="61"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>

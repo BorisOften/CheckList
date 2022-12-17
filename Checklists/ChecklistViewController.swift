@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController {
+class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
+    
     
     var items = [ChecklistItem]()
 
@@ -15,6 +16,7 @@ class ChecklistViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         
         let item1 = ChecklistItem()
         item1.text = "Walk the dog"
@@ -87,24 +89,27 @@ class ChecklistViewController: UITableViewController {
         label.text = item.text
     }
     
-    // MARK: - Actions
+    // MARK: - add item delegates
     
-    
-    @IBAction func addItembuttonPressed(_ sender: UIBarButtonItem) {
-        
-        let numbsRows = items.count
-        
-        let item = ChecklistItem()
-        item.text = "Boss baby"
-        
-        let indexpath = IndexPath(row: numbsRows, section: 0)
-        
-        let indexPaths = [indexpath]
-        
+    func addItemViewController(_ controller: AddItemTableViewController, didFinishAdding item: ChecklistItem) {
+        let newRowIndex = items.count
         items.append(item)
         
-        tableView.insertRows(at: indexPaths, with: .fade)
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        
+        tableView.insertRows(at: indexPaths, with: UITableView.RowAnimation.fade)
+        navigationController?.popViewController(animated: true)
     }
     
+    
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "AddItem" {
+            let controller = segue.destination as! AddItemTableViewController
+            controller.delegate = self
+        }
+    }
 }
 

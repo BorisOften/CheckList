@@ -7,31 +7,47 @@
 
 import UIKit
 
+protocol AddItemViewControllerDelegate: AnyObject {
+
+    func addItemViewController(_ controller: AddItemTableViewController, didFinishAdding item: ChecklistItem
+    )
+}
+
 class AddItemTableViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
-    
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
+    weak var delegate: AddItemViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.largeTitleDisplayMode = .never
         textField.delegate = self
+        doneBarButton.isEnabled = false
     }
     override func viewDidAppear(_ animated: Bool) {
         textField.becomeFirstResponder()
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
-        print("The word is: \(textField.text)")
-        navigationController?.popViewController(animated: true)
+        let item = ChecklistItem()
+        item.text = textField.text!
+        
+        delegate?.addItemViewController(self, didFinishAdding: item)
+        
     }
     
     //MARK: - textfield delegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        navigationController?.popViewController(animated: true)
+        
+        let item = ChecklistItem()
+        item.text = textField.text!
+        
+        delegate?.addItemViewController(self, didFinishAdding: item)
+        
         return true
     }
     
@@ -40,11 +56,13 @@ class AddItemTableViewController: UITableViewController, UITextFieldDelegate {
         let oldText = textField.text!
         let stringRange = Range(range, in: oldText)!
         let newText = oldText.replacingCharacters(in: stringRange,with: string)
-        if newText.isEmpty {
-            doneBarButton.isEnabled = false
-        } else {
-            doneBarButton.isEnabled = true
-        }
+        
+        doneBarButton.isEnabled = !newText.isEmpty
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        doneBarButton.isEnabled = false
         return true
     }
     
